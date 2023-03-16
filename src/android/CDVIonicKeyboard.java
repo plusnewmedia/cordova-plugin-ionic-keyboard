@@ -10,11 +10,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
 // import additionally required classes for calculating screen height
@@ -125,13 +127,7 @@ public class CDVIonicKeyboard extends CordovaPlugin {
                         private void possiblyResizeChildOfContent() {
                             int usableHeightNow = computeUsableHeight();
                             if (usableHeightNow != usableHeightPrevious) {
-                                int usableHeightSansKeyboard = mChildOfContent.getRootView().getHeight();
-                                int heightDifference = usableHeightSansKeyboard - usableHeightNow;
-                                if (heightDifference > (usableHeightSansKeyboard/4)) {
-                                    frameLayoutParams.height = usableHeightSansKeyboard - heightDifference;
-                                } else {
-                                    frameLayoutParams.height = usableHeightSansKeyboard;
-                                }
+                                frameLayoutParams.height = usableHeightNow;
                                 mChildOfContent.requestLayout();
                                 usableHeightPrevious = usableHeightNow;
                             }

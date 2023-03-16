@@ -1,5 +1,11 @@
 # cordova-plugin-ionic-keyboard
 
+**NOTE:** This plugin is forked to apply the PR changes mentioned here: https://github.com/ionic-team/cordova-plugin-ionic-keyboard/pull/145
+
+The keyboard plugin was overlapping the navigation bar for android devices. As the PR is not yet merged after so many years, the only option we had was to fork it and make the changes ourselves.
+
+---
+
 This plugin has been designed to work seamlessly with `cordova-plugin-ionic-webview`, so make sure you have it installed first:
 
  - https://github.com/ionic-team/cordova-plugin-ionic-webview
